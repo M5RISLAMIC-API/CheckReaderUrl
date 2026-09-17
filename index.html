@@ -705,7 +705,7 @@ function finalizeResults(allResults, startTime, aborted){
   const lines = []; let line = '';
   nums.forEach((n,i)=>{ line += (i>0? ', ':'') + n; if(line.length > 60){ lines.push(line); line=''; } });
   if(line) lines.push(line);
-  document.getElementById('numbersArrayText').textContent = `surahsnum: [${lines.join(',\n  ')}]`;
+  document.getElementById('numbersArrayText').textContent = `surahsnum: [${lines.join('')}]`;
   document.getElementById('numbersArrayBox').style.display = 'block';
 
   isCheckingAll = false;
@@ -887,7 +887,7 @@ function copyNumbersArray(){
   const lines = []; let line = '';
   nums.forEach((n,i)=>{ line += (i>0? ', ':'') + n; if(line.length > 60){ lines.push(line); line=''; } });
   if(line) lines.push(line);
-  copyText(`surahsnum: [${lines.join(',\n  ')}]`);
+  copyText(`surahsnum: [${lines.join(',\n ')}]`);
 }
 function copyFullArray(){
   const arr = workingResults.map(r=>({ num:r.suraNum, triple:pad3(r.suraNum), name:r.suraName, file:r.filename, url:r.url }));
